@@ -11,7 +11,7 @@ class LLNode<T> {
 
 /** LinkedList: chained together nodes. */
 
-class LinkedList<T> {
+export class LinkedList<T> {
   head: LLNode<T> | null = null;
   tail: LLNode<T> | null = null;
   length = 0;
@@ -104,10 +104,10 @@ class LinkedList<T> {
   /** shift(): return & remove first item. */
 
   shift() {
-    if (this.tail === null) throw new Error("the list is empty");
+    if (this.length === 0) throw new Error("the list is empty");
 
     if (this.length === 1) {
-      const returnVal = this.tail.val;
+      const returnVal = this.tail!.val;
 
       this.head = null;
       this.tail = null;
@@ -248,4 +248,4 @@ class LinkedList<T> {
   }
 }
 
-module.exports = LinkedList;
+// module.exports = LinkedList;

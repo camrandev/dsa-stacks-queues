@@ -9,16 +9,16 @@ beforeEach(function () {
 describe("enqueue", function () {
   it("places the value at the end of the queue and returns undefined", function () {
     expect(queue.enqueue(10)).toBe(undefined);
-    expect(queue.first.val).toBe(10);
-    expect(queue.last.val).toBe(10);
+    expect(queue.first).toBe(10);
+    expect(queue.last).toBe(10);
 
     queue.enqueue(100);
-    expect(queue.first.val).toBe(10);
-    expect(queue.last.val).toBe(100);
+    expect(queue.first).toBe(10);
+    expect(queue.last).toBe(100);
 
     queue.enqueue(1000);
-    expect(queue.first.val).toBe(10);
-    expect(queue.last.val).toBe(1000);
+    expect(queue.first).toBe(10);
+    expect(queue.last).toBe(1000);
   });
 
   it("calculates the correct size of the queue", function () {

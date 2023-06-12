@@ -1,5 +1,7 @@
-const linkedList = require("./linked-list");
+// const LinkedList = require("./linked-list");
 /** Node: node for a queue. */
+
+import { LinkedList } from "./linked-list";
 
 // class QNode<T> {
 //   val: T | null = null;
@@ -33,20 +35,28 @@ class Queue<T> {
 
   /** enqueue(val): add new value to end of the queue. Returns undefined. */
 
-  enqueue(val) {}
+  enqueue(val: T): void {
+    this._list.push(val);
+  }
 
   /** dequeue(): remove the node from the start of the queue
    * and return its value. Should throw an error if the queue is empty. */
 
-  dequeue() {}
+  dequeue(): T {
+    return this._list.shift();
+  }
 
   /** peek(): return the value of the first node in the queue. */
 
-  peek() {}
+  peek(): T | null {
+    return this.first;
+  }
 
   /** isEmpty(): return true if the queue is empty, otherwise false */
 
-  isEmpty() {}
+  isEmpty(): boolean {
+    return this.size === 0;
+  }
 }
 
 module.exports = Queue;
