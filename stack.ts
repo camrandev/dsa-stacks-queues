@@ -49,4 +49,4 @@ export class Stack<T> {
   }
 }
 
-module.exports = Stack;
+// module.exports = Stack;

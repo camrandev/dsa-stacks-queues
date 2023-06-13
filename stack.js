@@ -1,7 +1,8 @@
 "use strict";
 /** Node: node for a stack. */
 Object.defineProperty(exports, "__esModule", { value: true });
-const linked_list_1 = require("./linked-list");
+exports.Stack = void 0;
+var linked_list_1 = require("./linked-list");
 // class Node {
 //   val = null;
 //   next = null;
@@ -11,31 +12,37 @@ const linked_list_1 = require("./linked-list");
 // }
 /** Stack: chained-together nodes where you can
  *  remove from the top or add to the top. */
-class Stack {
-    constructor() {
+var Stack = /** @class */ (function () {
+    function Stack() {
         // top = null;
         // size = 0;
         this._list = new linked_list_1.LinkedList();
     }
-    get size() {
-        return this._list.length;
-    }
+    Object.defineProperty(Stack.prototype, "size", {
+        get: function () {
+            return this._list.length;
+        },
+        enumerable: false,
+        configurable: true
+    });
     /** push(val): add new value to the top of the stack. Returns undefined. */
-    push(val) {
+    Stack.prototype.push = function (val) {
         this._list.unshift(val);
-    }
+    };
     /** pop(): remove the node from the top of the stack
      * and return its value. Should throw an error if the stack is empty. */
-    pop() {
+    Stack.prototype.pop = function () {
         return this._list.shift();
-    }
+    };
     /** peek(): return the value of the top node in the stack. */
-    peek() {
+    Stack.prototype.peek = function () {
         return this._list.getAt(0);
-    }
+    };
     /** isEmpty(): return true if the stack is empty, otherwise false */
-    isEmpty() {
+    Stack.prototype.isEmpty = function () {
         return this.size === 0;
-    }
-}
-module.exports = Stack;
+    };
+    return Stack;
+}());
+exports.Stack = Stack;
+// module.exports = Stack;
