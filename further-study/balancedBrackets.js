@@ -1,35 +1,38 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var stack_1 = require("../stack");
+const stack_1 = require("../stack");
 //iterating over the actual string
 //logic to to handle match top value
 //stack itself to hold onto values as they appear
 function balancedBrackets(str) {
     if (str.length === 0)
         return true;
-    var bracketTracker = new stack_1.Stack();
-    var pairs = {
+    let bracketTracker = new stack_1.Stack();
+    const pairs = {
         "[": "]",
         "(": ")",
     };
-    var closingPairs = {
+    const closingPairs = {
         "]": "[",
         ")": "(",
     };
-    for (var _i = 0, str_1 = str; _i < str_1.length; _i++) {
-        var char = str_1[_i];
+    for (const char of str) {
         if (char in pairs) {
             bracketTracker.push(char);
         }
         if (char in closingPairs) {
-            var key = char;
-            var topOfStack = bracketTracker.pop();
-            console.log(topOfStack);
+            const key = char;
+            if (bracketTracker.isEmpty())
+                return false;
+            let topOfStack = bracketTracker.pop();
+            // console.log(topOfStack)
             if (closingPairs[key] !== topOfStack) {
                 return false;
             }
         }
     }
+    if (bracketTracker.size != 0)
+        return false;
     return true;
     //iterating over the actual string
 }

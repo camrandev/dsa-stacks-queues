@@ -27,15 +27,18 @@ function balancedBrackets(str: string): boolean {
 
     if (char in closingPairs) {
       const key: "]" | ")" = char as "]" | ")";
+      if (bracketTracker.isEmpty()) return false
 
       let topOfStack = bracketTracker.pop();
-      console.log(topOfStack)
+      // console.log(topOfStack)
 
       if (closingPairs[key] !== topOfStack) {
         return false;
       }
     }
   }
+
+  if (bracketTracker.size != 0) return false
 
   return true;
 
